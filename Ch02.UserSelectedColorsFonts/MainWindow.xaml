@@ -1,0 +1,19 @@
+﻿<Window x:Class="Ch02.UserSelectedColorsFonts.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ch02.UserSelectedColorsFonts"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Rectangle Margin="10" Fill="{DynamicResource {x:Static SystemColors.DesktopBrushKey}}" />
+        <TextBlock Grid.Row="1" Text="Hello from fontisimo" 
+                   FontFamily="{DynamicResource {x:Static SystemFonts.CaptionFontFamilyKey}}"
+                   FontSize="{DynamicResource {x:Static SystemFonts.CaptionFontSizeKey}}"/>
+    </Grid>
+</Window>

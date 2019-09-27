@@ -1,0 +1,22 @@
+﻿<Window x:Class="Ch01.StaticProperties.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ch01.StaticProperties"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <StackPanel>
+        <Ellipse Stroke="Black" Height="50" Fill="{x:Static SystemColors.DesktopBrush}" />
+        <!--<Rectangle Stroke="Black" Height="50" Fill="{x:Static SystemColors.ActiveCaptionBrush}" />-->
+        <Rectangle Stroke="Black" Height="50">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="1,0">
+                    <GradientStop Offset="0"
+                                  Color="{x:Static SystemColors.ActiveCaptionColor}" />
+                    <GradientStop Offset="1" Color="{x:Static SystemColors.GradientActiveCaptionColor}" />
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+    </StackPanel>
+</Window>
