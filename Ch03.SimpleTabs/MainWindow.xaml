@@ -1,0 +1,29 @@
+﻿<Window x:Class="Ch03.SimpleTabs.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ch03.SimpleTabs"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <TabControl>
+        <TabItem Header="Header 1">
+            <Grid>
+                <Ellipse Stroke="Black" Fill="Blue" StrokeThickness="4" Margin="10" />
+                <TextBlock Text="Data 1" FontSize="30" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </Grid>
+        </TabItem>
+        <TabItem>
+            <TabItem.Header>
+                <StackPanel Orientation="Horizontal" Margin="2">
+                    <Rectangle Stroke="Black" Fill="Red" StrokeThickness="2" Width="20" Height="20" />
+                    <TextBlock Text="Header 2" Margin="4,0,0,0" VerticalAlignment="Center" />
+                </StackPanel>
+            </TabItem.Header>
+            <Grid>
+                <Rectangle Stroke="Black" Fill="Green" RadiusX="20" RadiusY="20" StrokeThickness="4" Margin="10"/>
+                <TextBlock Text="Data 2" FontSize="30" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </Grid>
+        </TabItem>
+    </TabControl>
+</Window>

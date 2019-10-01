@@ -1,0 +1,17 @@
+﻿<Window x:Class="Ch03.CanvasDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ch03.CanvasDemo"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Canvas>
+        <Ellipse Stroke="Black" StrokeThickness="2" Fill="Red" Canvas.Right="50" Canvas.Top="40" Width="50" Height="50" />
+        <TextBlock Text="Canvas Demo" FontSize="20"
+Canvas.Left="100" Canvas.Top="20" />
+        <Rectangle Stroke="Black" StrokeThickness="1" Fill="LightBlue"
+Canvas.Bottom="0" Canvas.Left="40"
+Width="30" Height="100" />
+    </Canvas>
+</Window>

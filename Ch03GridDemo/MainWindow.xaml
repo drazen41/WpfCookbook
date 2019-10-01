@@ -1,0 +1,28 @@
+﻿<Window x:Class="Ch03GridDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ch03GridDemo"
+        mc:Ignorable="d"
+        Title="Grid Demo" Height="450" Width="800">
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.ColumnSpan="2" HorizontalAlignment="Center" Text="Book Details" FontSize="20" Margin="4" />
+        <TextBlock Grid.Row="1" HorizontalAlignment="Right" Text="Name:" Margin="4" />
+        <TextBlock Grid.Row="2" HorizontalAlignment="Right" Text="Author:" Margin="4" />
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="Windows internals" Margin="4" />
+        <TextBlock Grid.Row="2" Grid.Column="1" Text="Mark Russinovich" Margin="4" />
+        <Rectangle Grid.Column="1" Grid.Row="3" Margin="4" StrokeThickness="4" Stroke="Black" Fill="Red" />
+        <TextBlock Grid.Column="1" Grid.Row="3" Text="Book Cover" VerticalAlignment="Center" FontSize="16" HorizontalAlignment="Center" />
+    </Grid>
+</Window>

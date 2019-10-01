@@ -1,0 +1,19 @@
+﻿<Window x:Class="Ch03.DynamicGridSizing.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ch03.DynamicGridSizing"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition MinWidth="40"/>
+            <ColumnDefinition Width="2*" MinWidth="50"/>
+            
+        </Grid.ColumnDefinitions>
+        <Ellipse Stroke="Black" StrokeThickness="2" Fill="Red"/>
+        <Ellipse Stroke="Black" StrokeThickness="2" Fill="Green" Grid.Column="1"/>
+        <GridSplitter Grid.Column="1" HorizontalAlignment="Left" Width="3" Background="Blue" Margin="-1,0,0,0" />
+    </Grid>
+</Window>
