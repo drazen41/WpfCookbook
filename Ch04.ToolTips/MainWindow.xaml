@@ -1,0 +1,46 @@
+﻿<Window x:Class="Ch04.ToolTips.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ch04.ToolTips"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <ToolBar>
+            <Button Content="Copy" FontSize="16" Margin="4" Padding="4" Command="Copy" ToolTip="Copy the selected text to the clipboard" ToolTipService.HasDropShadow="True" />
+            <Button Content="Paste" FontSize="16" Margin="4" Padding="4" Command="Paste"  >
+                <Button.ToolTip>
+                    <ToolTip>
+                        <Border CornerRadius="10" BorderThickness="2" BorderBrush="Black" Padding="4" Background="LightBlue">
+                            <Grid Width="120">
+                                <TextBlock FontSize="15" TextWrapping="Wrap" Text="Paste text from the clipboard" />
+                            </Grid>
+                        </Border>
+                    </ToolTip>
+                </Button.ToolTip>
+            </Button>
+            <Button Content="Undo" Command="Undo" FontSize="16" Margin="4" Padding="4" ToolTipService.HasDropShadow="False">
+                <Button.Resources>
+                    <Style TargetType="ToolTip">
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="BorderBrush" Value="Transparent" />
+                    </Style>
+                </Button.Resources>
+                <Button.ToolTip>
+                    <Border CornerRadius="10" BorderThickness="2" BorderBrush="Black" Padding="4" Background="LightBlue">
+                        <Grid>
+                            <TextBlock FontSize="15" TextWrapping="Wrap" Text="Undo the last action" />
+                        </Grid>
+                    </Border>
+                </Button.ToolTip>
+            </Button>
+        </ToolBar>
+        <TextBox AcceptsReturn="True" Grid.Row="1" FontSize="14" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" />
+        
+    </Grid>
+</Window>

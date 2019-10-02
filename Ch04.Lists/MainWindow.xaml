@@ -1,0 +1,38 @@
+﻿<Window x:Class="Ch04.Lists.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ch04.Lists"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <ComboBox Margin="4" x:Name="_langCombo" SelectionChanged="OnLangChanged">
+            <ComboBoxItem >C++</ComboBoxItem>
+            <ComboBoxItem>C#</ComboBoxItem>
+            <ComboBoxItem>Visual Basic</ComboBoxItem>
+            <ComboBoxItem>F#</ComboBoxItem>
+        </ComboBox>
+        <GroupBox Header="Some Keywords" Grid.Row="1" Margin="4">
+            <ListBox x:Name="_keywordList" Margin="4" >
+                <ListBox.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="_Language" Click="OnChangeLanguage">
+                            <MenuItem Header="C++" Tag="0" />
+                            <MenuItem Header="C#" Tag="1" />
+                            <MenuItem Header="Visual Basic" Tag="2" />
+                            <MenuItem Header="F#" Tag="3" />
+                        </MenuItem>
+                        <Separator />
+                        <MenuItem Header="_Save..." />
+                        <MenuItem Header="_Load..." />
+                    </ContextMenu>
+                </ListBox.ContextMenu>
+            </ListBox>
+        </GroupBox>
+    </Grid>
+</Window>

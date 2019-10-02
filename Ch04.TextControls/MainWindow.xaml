@@ -1,0 +1,35 @@
+﻿<Window x:Class="Ch04.TextControls.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ch04.TextControls"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <TextBlock FontSize="16" Text="User comment details" Margin="4" Grid.ColumnSpan="2" HorizontalAlignment="Center" />
+        <Label Content="_Name:" Grid.Row="1" Target="_name"  />
+        <TextBox Grid.Row="1" Grid.Column="1" x:Name="_name" Margin="2"/>
+        <Label Content="_Comment:" Grid.Row="2" Target="_comment" />
+        <TextBox AcceptsReturn="True" Grid.Row="2" Grid.Column="1" x:Name="_comment" Margin="2"/>
+        <TextBlock >
+            <Run Foreground="Blue" Text="Hello TextBlock" />
+            <LineBreak />
+            <Bold><Italic FontSize="16">This is pronouned text</Italic></Bold>
+            <LineBreak />
+            <Run>Click the following link to go to search:</Run>
+            <Hyperlink >Search in Database</Hyperlink>
+        </TextBlock>
+        <Button HorizontalAlignment="Center" Margin="4" Grid.Row="3" Grid.ColumnSpan="2" FontSize="16" Content="Submit Comment" Click="OnCommentSubmit" />
+    </Grid>
+</Window>

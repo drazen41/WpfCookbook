@@ -1,0 +1,27 @@
+﻿<Window x:Class="Ch04.SelectingOptions.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ch04.SelectingOptions"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <StackPanel>
+        <GroupBox Header="What kind of tea would you like?">
+            <StackPanel Margin="4" x:Name="_teaTypePanel">
+                <RadioButton Content="Earl Grey" IsChecked="True" />
+                <RadioButton Content="Mint" />
+                <RadioButton Content="Chinese Green" />
+                <RadioButton Content="Japanese Green" />
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="Select tea supplements">
+            <StackPanel Margin="4">
+                <CheckBox Content="Sugar" x:Name="_isSugar" />
+                <CheckBox Content="Milk" x:Name="_isMilk" />
+                <CheckBox Content="Lemon" x:Name="_isLemon" />
+            </StackPanel>
+        </GroupBox>
+        <Button Content="Make Tea!" Margin="4" FontSize="20" HorizontalAlignment="Center" Padding="4" Click="OnMakeTea" />
+    </StackPanel>
+</Window>
