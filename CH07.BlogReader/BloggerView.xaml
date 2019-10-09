@@ -1,0 +1,23 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:CH07.BlogReader">
+    <DataTemplate x:Key="bloggerTemplate">
+        <Grid Background="#c0ffffff">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="{Binding Model.Name}" FontWeight="Bold" FontSize="16" />
+            <TextBlock Grid.Row="1" FontSize="14">
+                <Hyperlink Command="{Binding SendEmailCommand}" CommandParameter="{Binding Model.Email}">
+                    <Run Text="{Binding Model.Email}" />
+                </Hyperlink>
+            </TextBlock>
+            <Image Grid.Column="1" Grid.RowSpan="2" Source="{Binding Picture}" Width="48" Height="48" Stretch="Uniform" Margin="4"/>
+        </Grid>
+    </DataTemplate>
+</ResourceDictionary>

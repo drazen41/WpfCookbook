@@ -1,0 +1,27 @@
+﻿<Window x:Class="CH07.BlogReader.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CH07.BlogReader"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Panel.ZIndex="1000">
+            <TextBlock Text="Select blog to read:" VerticalAlignment="Center" Margin="2"/>
+            <ComboBox ItemsSource="{Binding Blogs}" Margin="10,0,0,0" DisplayMemberPath="Model.BlogTitle" Width="170" SelectedItem="{Binding SelectedBlog, Mode=TwoWay}">
+            </ComboBox>
+            <Canvas Visibility="{Binding IsSelectedBlog}" >
+                <Expander Margin="10,0,0,0" VerticalAlignment="Center" ExpandDirection="Down" Header="Blog Information" ContentTemplate="{StaticResource bloggerTemplate}"
+Content="{Binding SelectedBlog.Blogger}">
+                </Expander>
+            </Canvas>
+        </StackPanel>
+        <ContentControl Content="{Binding SelectedBlog}" ContentTemplate="{StaticResource blogTemplate}" Grid.Row="1" Visibility="{Binding IsSelectedBlog}" Margin="2,10,2,2" />
+    </Grid>
+</Window>
