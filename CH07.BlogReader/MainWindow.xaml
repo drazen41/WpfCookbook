@@ -6,7 +6,81 @@
         xmlns:local="clr-namespace:CH07.BlogReader"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    
+    <Window.Resources>
+        <DataTemplate x:Key="bloggerTemplate">
+            <Grid Background="#c0ffffff">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{Binding Model.Name}" FontWeight="Bold" FontSize="16" />
+                <TextBlock Grid.Row="1" FontSize="14">
+                <Hyperlink Command="{Binding SendEmailCommand}" CommandParameter="{Binding Model.Email}">
+                    <Run Text="{Binding Model.Email}" />
+                </Hyperlink>
+                </TextBlock>
+                <Image Grid.Column="1" Grid.RowSpan="2" Source="{Binding Picture}" Width="48" Height="48" Stretch="Uniform" Margin="4"/>
+            </Grid>
+        </DataTemplate>
+        
+        <DataTemplate x:Key="blogPostTemplate">
+            <Grid Background="#b0dddddd" Margin="2,10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding Title}" FontWeight="Bold" />
+                    <TextBlock Margin="10,0,0,0" Text="{Binding Model.When, StringFormat='(\{0\})'}" FontStyle="Italic" />
+                </StackPanel>
+                <TextBlock Grid.Row="1" Text="{Binding Text}" Margin="0,10,0,0" TextWrapping="Wrap" />
+                <Expander Grid.Row="2" ExpandDirection="Down">
+                    <Expander.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Comments" />
+                            <Button Margin="20,0,0,0" Content="New Comment" Command="{Binding NewCommentCommand}" />
+                        </StackPanel>
+                    </Expander.Header>
+                    <Border BorderBrush="Blue" BorderThickness="2" Padding="2" Margin="2">
+                        <ItemsControl ItemsSource="{Binding Model.Comments}" ItemTemplate="{StaticResource commentTemplate}" />
+                    </Border>
+                </Expander>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="blogTemplate">
+            <Grid Background="LightYellow">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding Model.BlogTitle}" FontWeight="Bold" />
+                    <Button Margin="20,0,0,0" Content="New Post" Command="{Binding NewPostCommand}" />
+                </StackPanel>
+                <ScrollViewer Grid.Row="1" Margin="4" VerticalScrollBarVisibility="Auto">
+                    <ItemsControl ItemsSource="{Binding Posts}" ItemTemplate="{StaticResource blogPostTemplate}" HorizontalContentAlignment="Stretch" />
+                </ScrollViewer>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="commentTemplate">
+            <Grid Margin="2,8">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding Model.When,StringFormat=d}" />
+                    <TextBlock Margin="10,0,0,0" Text="{Binding Name,StringFormat=From: \{0\}}" FontWeight="Bold"/>
+                </StackPanel>
+                <TextBlock Grid.Row="1" Text="{Binding Text}" TextWrapping="Wrap" />
+            </Grid>
+        </DataTemplate>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
