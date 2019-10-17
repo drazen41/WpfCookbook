@@ -1,0 +1,33 @@
+﻿<Application x:Class="CH10.TestCustomControls.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:CH10.TestCustomControls"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ControlTemplate x:Key="cpTemplate">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Slider x:Name="PART_RedSlider" Margin="5" Orientation="Vertical" />
+                <Slider x:Name="PART_GreenSlider" Margin="5" Orientation="Vertical" Grid.Column="1" />
+                <Slider x:Name="PART_BlueSlider" Margin="5" Orientation="Vertical" Grid.Column="2" />
+                <Grid Grid.Column="3">
+                    <Rectangle RadiusX="20" RadiusY="20" Margin="5" Stroke="Black" StrokeThickness="1">
+                        <Rectangle.Fill>
+                            <SolidColorBrush x:Name="PART_SelectedColor" />
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <StackPanel VerticalAlignment="Center" TextBlock.FontSize="16">
+                        <TextBlock x:Name="PART_RedText" Foreground="White" HorizontalAlignment="Center"/>
+                        <TextBlock x:Name="PART_GreenText" Foreground="White" HorizontalAlignment="Center"/>
+                        <TextBlock x:Name="PART_BlueText" Foreground="White" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </ControlTemplate>
+    </Application.Resources>
+</Application>

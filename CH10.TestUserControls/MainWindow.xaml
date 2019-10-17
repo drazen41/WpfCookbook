@@ -1,0 +1,23 @@
+﻿<Window x:Class="CH10.TestUserControls.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CH10.TestUserControls"
+        mc:Ignorable="d"
+        Title="Color Picker" Height="450" Width="800"
+        xmlns:ctls="clr-namespace:CH10.UserControls;assembly=Ch10.UserControls" >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <ctls:ColorPicker SelectedColorChanged="OnColorChanged" x:Name="picker" />
+        <TextBlock x:Name="_tbColor" FontSize="20" Grid.Row="1" Margin="8"/>
+        <UniformGrid Grid.Row="2" Columns="2">
+            <RepeatButton Content="&lt;&lt;" FontSize="30" Command="ChannelDown" Margin="4" CommandTarget="{Binding ElementName=picker}" />
+            <RepeatButton Content="&gt;&gt;" FontSize="30" Command="ChannelUp" Margin="4" CommandTarget="{Binding ElementName=picker}" />
+        </UniformGrid>
+    </Grid>
+</Window>
